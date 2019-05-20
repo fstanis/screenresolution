@@ -6,12 +6,11 @@ package screenresolution
 #include <X11/Xlib.h>
 */
 import "C"
-import "fmt"
 
-func get() string {
+func get() *Resolution {
 	dy := C.XOpenDisplay(nil)
 	if dy == nil {
-		return ""
+		return nil
 	}
 	defer C.XCloseDisplay(dy)
 
@@ -19,7 +18,7 @@ func get() string {
 	width := int(C.XWidthOfScreen(screen))
 	height := int(C.XHeightOfScreen(screen))
 	if width == 0 || height == 0 {
-		return ""
+		return nil
 	}
-	return fmt.Sprintf("%dx%d", width, height)
+	return &Resolution{width, height}
 }

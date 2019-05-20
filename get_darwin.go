@@ -16,12 +16,11 @@ CGSize getPrimaryScreenSize() {
 }
 */
 import "C"
-import "fmt"
 
-func get() string {
+func get() *Resolution {
 	rect := C.getPrimaryScreenSize()
 	if rect.width == 0 || rect.height == 0 {
-		return ""
+		return nil
 	}
-	return fmt.Sprintf("%dx%d", int(rect.width), int(rect.height))
+	return &Resolution{int(rect.width), int(rect.height)}
 }

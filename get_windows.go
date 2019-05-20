@@ -1,16 +1,14 @@
 package screenresolution
 
 import (
-	"fmt"
-
 	"github.com/lxn/win"
 )
 
-func get() string {
+func get() *Resolution {
 	width := int(win.GetSystemMetrics(win.SM_CXSCREEN))
 	height := int(win.GetSystemMetrics(win.SM_CYSCREEN))
 	if width == 0 || height == 0 {
-		return ""
+		return nil
 	}
-	return fmt.Sprintf("%dx%d", width, height)
+	return &Resolution{width, height}
 }
