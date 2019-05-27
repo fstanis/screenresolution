@@ -15,7 +15,7 @@ func (r *Resolution) String() string {
 	return fmt.Sprintf("%dx%d", r.Width, r.Height)
 }
 
-// Get returns the current screen resolution of the primary display.
-func Get() *Resolution {
-	return get()
+// GetPrimary returns the current screen resolution of the primary display.
+func GetPrimary() *Resolution {
+	return getPrimary()
 }

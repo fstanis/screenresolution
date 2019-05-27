@@ -7,7 +7,7 @@ package screenresolution
 */
 import "C"
 
-func get() *Resolution {
+func getPrimary() *Resolution {
 	dy := C.XOpenDisplay(nil)
 	if dy == nil {
 		return nil

@@ -4,7 +4,7 @@ import (
 	"github.com/lxn/win"
 )
 
-func get() *Resolution {
+func getPrimary() *Resolution {
 	width := int(win.GetSystemMetrics(win.SM_CXSCREEN))
 	height := int(win.GetSystemMetrics(win.SM_CYSCREEN))
 	if width == 0 || height == 0 {

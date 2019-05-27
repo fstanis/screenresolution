@@ -17,7 +17,7 @@ CGSize getPrimaryScreenSize() {
 */
 import "C"
 
-func get() *Resolution {
+func getPrimary() *Resolution {
 	rect := C.getPrimaryScreenSize()
 	if rect.width == 0 || rect.height == 0 {
 		return nil

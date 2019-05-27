@@ -19,7 +19,7 @@ import (
 )
 
 func main() {
-	resolution := screenresolution.Get()
+	resolution := screenresolution.GetPrimary()
 	if resolution == "" {
 		fmt.Println("failed to get screen resolution")
 		os.Exit(1)
